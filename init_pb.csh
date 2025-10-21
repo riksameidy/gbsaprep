@@ -1,7 +1,7 @@
 #!/bin/csh
 
 # --- Configuration Variables ---
-set TARGET_DIR = bfe-gb
+set TARGET_DIR = bfe-pb
 set SYS_NAME = "my_protein_ligand" # <-- NEW: This name is now configurable!
 # -------------------------------
 
@@ -21,9 +21,11 @@ cp index.ndx $TARGET_DIR/
 cat << EOF > $TARGET_DIR/mmgbsa.in
 
 &general
-sys_name="Prot-Lig-CHARMM",
-startframe=1,
-endframe=4,
+sys_name="$SYS_NAME",
+startframe=900,
+endframe=1000,
+temperature=300,
+interval=1
 PBRadii=7,
 /
 &pb
