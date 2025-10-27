@@ -244,17 +244,7 @@ if __name__ == '__main__':
             with open('ana.pickle', 'wb') as file:
                 pickle.dump(md_data, file)
 
-            # Example: Head of RMSD DataFrame ('rmsd')
-            if 'rmsd' in md_data:
-                print("\nExample: Head of RMSD DataFrame ('rmsd'):")
-                rmsd_df = md_data['rmsd']
-                # Try to assign columns based on typical GROMACS output for clarity
-                if rmsd_df.shape[1] >= 2:
-                    rmsd_df.columns = ['Time (ns)', 'RMSD (nm)']
-                    print(rmsd_df.head())
-                else:
-                     print(f"DataFrame 'rmsd' loaded with shape {rmsd_df.shape}. Printing head:")
-                     print(rmsd_df.head())
+            
 
         else:
             print("No data loaded. Run the main script first to generate data.")
