@@ -186,6 +186,7 @@ import pandas as pd
 import os
 import glob
 from typing import Dict
+import pickle
 
 def load_csv_files(folder_path: str) -> Dict[str, pd.DataFrame]:
     """
@@ -240,6 +241,8 @@ if __name__ == '__main__':
         if md_data:
             print("\nSuccessfully loaded DataFrames. Dictionary keys:")
             print(list(md_data.keys()))
+            with open('ana.pickle', 'wb') as file:
+                pickle.dump(md_data, file)
 
             # Example: Head of RMSD DataFrame ('rmsd')
             if 'rmsd' in md_data:
